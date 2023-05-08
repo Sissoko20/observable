@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>users</ion-title>
+   <ion-buttons slot="start">
+    <ion-back-button defaultHref="/users"></ion-back-button>
+   </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngIf="(activite$ | async) as activite">
+    <ion-card-header>
+      <ion-card-title>{{ activite.email }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ activite.last_name }}  {{ activite.first_name }}
+    </ion-card-content> 
+  </ion-card>
+
+</ion-content>

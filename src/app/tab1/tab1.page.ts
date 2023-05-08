@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataManagerService } from '../data-manager.service';
+import { Observable } from 'rxjs';
+import { User } from './../../../type';
+
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +11,19 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor( 
+    private datamanager:DataManagerService
+    ) {}
+
+  ngOnInit(){
+this.datamanager.getDataUser().subscribe((data:User[])=>{
+  this.processData(data)
+})
+
+  }
+
+  processData(data:User[]){
+      console.log(data)
+  }
 
 }
